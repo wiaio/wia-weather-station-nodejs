@@ -1,14 +1,15 @@
 {
-  "name": "wia-weather-station-nodejs",
-  "version": "1.0.0",
-  "description": "An awesome weather station device",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Cormac Chisholm",
-  "license": "ISC",
-  "dependencies": {
-    "wia": "^1.3.3"
-  }
+    "name": "wia-weather-station-nodejs",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Your Name Here",
+    "license": "ISC",
+    "dependencies": {
+        "nodeimu": "^2.1.9",
+        "wia": "^1.3.3"
+    }
 }
