@@ -1,59 +1,66 @@
-var wia = require('wia')('device secret key');
+// var wia = require('wia')('device secret key');
+var wia = require('wia')('d_sk_xnA1YItohlSB7sZq3crsxLH4');
 
 wia.stream.on('connect', function() {
   console.log('Stream connected!');
 
-  // Assign values to variables t, p, and h that reperesent temperature, pressure and humidity respectively.
+  /* Assign values to variables t, p, and h that represent temperature, pressure and humidity respectively.*/
   var t = 20;// replace with values from your temperature sensor
   var p = 1020;// replace with values from your pressure sensor
   var h = 60;// replace with values from your humidity sensor
 
   setInterval(function() {
-    // Sensor publishing the temperature data
-    wia.sensors.publish({
-      name: "temperature",
-      data: t
-    },
-    function(err, published) {
-      if (err !== null){
-        console.log(err);
+    // Event publishing the temperature data
+    wia.events.publish(
+      {
+        name: "temperature",
+        data: t
+      },
+      function(err, published) {
+        if (err) {
+          console.log(err);
+        }
+        if (published) {
+          console.log("Event published.");
+        }
       }
-      if (published !== null){
-        console.log("Temperature sensor reading published.");
-      }
-    });
+    );
   }, 1500);
 
   setInterval(function() {
-    // Sensor publishing the pressure data
-    wia.sensors.publish({
-      name: "pressure",
-      data: p
-    },
-    function(err, published) {
-      if (err !== null) {
-        console.log(err);
+    // Event publishing the pressure data
+    wia.events.publish(
+      {
+        name: "pressure",
+        data: p
+      },
+      function(err, published) {
+        if (err) {
+          console.log(err);
+        }
+        if (published) {
+          console.log("Event published.");
+        }
       }
-      if (published !== null) {
-        console.log("Pressure sensor reading published.");
-      }
-    });
+    );
   }, 1500);
 
   setInterval(function() {
-    // Sensor publishing the temperature data
-    wia.sensors.publish({
-      name: "humidity",
-      data: h
-    },
-    function(err, published) {
-      if (err !== null) {
-        console.log(err);
+    // Event publishing the humidity data
+    wia.events.publish(
+      {
+        name: "humidity",
+        data: h
+      },
+      function(err, published) {
+        if (err) {
+          console.log(err);
+        }
+        if (published) {
+          console.log("Event published.");
+        }
       }
-      if (published !== null) {
-        console.log("Humidity sensor reading published.");
-      }
-    });
+    );
   }, 1500);
 });//end on stream connect
 
