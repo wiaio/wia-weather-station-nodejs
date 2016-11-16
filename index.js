@@ -5,6 +5,7 @@ var nodeimu  = require('nodeimu');
 var IMU = new nodeimu.IMU();
 
 var tic = new Date();
+
 var callback = function (error, data) {
  var toc = new Date();
  if (error) {
@@ -32,4 +33,10 @@ var callback = function (error, data) {
 
  setTimeout(function() { tic = new Date(); IMU.getValue(callback); } , 250 - (toc - tic));
 }
-IMU.getValue(callback); 
+
+//
+wia.stream.on('connect', function() {
+  IMU.getValue(callback);
+});
+
+wia.stream.connect();
